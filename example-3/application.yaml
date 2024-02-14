@@ -5,15 +5,15 @@ metadata:
   name: my-app
   namespace: argocd
   annotations:
-    argocd-image-updater.argoproj.io/image-list: 386082652299.dkr.ecr.us-east-1.amazonaws.com/argocd~v1.
+    argocd-image-updater.argoproj.io/image-list: 386082652299.dkr.ecr.us-east-1.amazonaws.com/argocd:~v1.
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
   project: default
   source:
-    repoURL: ssh://git@github.com/antonputra/lesson-159.git
+    repoURL: https://github.com/alfonso84/argocd.git
     targetRevision: main
-    path: environments/staging/my-app-private
+    path: stages/private
   destination:
     server: https://kubernetes.default.svc
   syncPolicy:

@@ -17,6 +17,6 @@ spec:
       containers:
         - name: nginx
           imagePullPolicy: Always
-          image: aputra/nginx-lesson159
+          image: 386082652299.dkr.ecr.us-east-1.amazonaws.com/argocd
           ports:
             - containerPort: 80

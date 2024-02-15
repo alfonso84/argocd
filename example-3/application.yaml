@@ -5,7 +5,7 @@ metadata:
   name: my-app
   namespace: argocd
   annotations:
-    argocd-image-updater.argoproj.io/image-list: 386082652299.dkr.ecr.us-east-1.amazonaws.com/argocd:~v1.
+    argocd-image-updater.argoproj.io/image-list: https://386082652299.dkr.ecr.us-east-1.amazonaws.com/argocd/argocd:1.0    
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:

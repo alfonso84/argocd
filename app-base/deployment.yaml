@@ -17,6 +17,6 @@ spec:
       containers:
         - name: nginx
           imagePullPolicy: Always
-          image: 386082652299.dkr.ecr.us-east-1.amazonaws.com/argocd
+          image: 386082652299.dkr.ecr.us-east-1.amazonaws.com/argocd:~1.0
           ports:
             - containerPort: 80

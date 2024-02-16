@@ -8,7 +8,7 @@ replicas:
 #     newName: 386082652299.dkr.ecr.us-east-1.amazonaws.com/argocd-private
 #     newTag: v0.1.0
 resources:
-  - ../../my-app-base
+  - ../../app-base
 # patches:
 #   - target:
 #       kind: Deployment

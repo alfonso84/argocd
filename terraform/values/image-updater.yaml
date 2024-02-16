@@ -19,4 +19,4 @@ authScripts:
   scripts:
     ecr-login.sh: |
       #!/bin/sh      
-      aws ecr --region "us-west-1" get-authorization-token --output text --query 'authorizationData[].authorizationToken'
+      aws ecr --region "us-west-1" get-authorization-token --output text --query 'authorizationData[].authorizationToken' | base64 -d

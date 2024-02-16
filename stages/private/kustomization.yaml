@@ -3,6 +3,10 @@ namespace: staging
 replicas:
   - name: nginx-deployment
     count: 1
+images:
+  - name: 386082652299.dkr.ecr.us-east-1.amazonaws.com/argocd
+    newName: 386082652299.dkr.ecr.us-east-1.amazonaws.com/argocd-private
+    newTag: 1.0    
 # images:
 #   - name: 386082652299.dkr.ecr.us-east-1.amazonaws.com/argocd
 #     newName: 386082652299.dkr.ecr.us-east-1.amazonaws.com/argocd-private

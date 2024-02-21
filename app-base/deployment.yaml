@@ -20,3 +20,5 @@ spec:
           image: 386082652299.dkr.ecr.us-east-1.amazonaws.com/argocd:1.0
           ports:
             - containerPort: 80
+      # imagePullSecrets:  # Added this section
+      # - name: regcred            

@@ -15,7 +15,7 @@ spec:
         app: nginx
     spec:
       imagePullSecrets:
-      - name: ecr-registry-secret    
+        - name: ecr-registry-secret    
       containers:
         - name: nginx
           imagePullPolicy: Always

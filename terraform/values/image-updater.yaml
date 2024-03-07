@@ -6,22 +6,26 @@ config:
     - name: ECR  
       api_url: https://386082652299.dkr.ecr.us-east-1.amazonaws.com
       prefix: 386082652299.dkr.ecr.us-east-1.amazonaws.com
-      credentials: ext:/scripts/ecr-login.sh  
+      # credentials: ext:/scripts/ecr-login.sh  
+      credentials:
+        secretRef:
+          name: ecr-credentials
+          key: aws_access_key_id      
       credsexpire: 12h
       limit: 20
-      insecure: false
+      insecure: true
       default: true
 
-authScripts:
-  enabled: true
-  scripts:
-    ecr-login.sh: |
-      #!/bin/sh
-      token=$(aws ecr get-authorization-token --region "us-east-1" --output json --query "authorizationData[].authorizationToken" | jq -r .[0])
-      token2=$(echo $token | base64 -d | cut -d: -f2)
-      echo "$token2" | docker login --username AWS --password-stdin 386082652299.dkr.ecr.us-east-1.amazonaws.com
-      if [ $? -eq 0 ]; then
-          echo "Conexión exitosa al registro de ECR"
-      else
-          echo "Error: Fallo al conectar al registro de ECR"
-      fi
+# authScripts:
+#   enabled: true
+#   scripts:
+#     ecr-login.sh: |
+#       #!/bin/sh
+#       token=$(aws ecr get-authorization-token --region "us-east-1" --output json --query "authorizationData[].authorizationToken" | jq -r .[0])
+#       token2=$(echo $token | base64 -d | cut -d: -f2)
+#       echo "$token2" | docker login --username AWS --password-stdin 386082652299.dkr.ecr.us-east-1.amazonaws.com
+#       if [ $? -eq 0 ]; then
+#           echo "Conexión exitosa al registro de ECR"
+#       else
+#           echo "Error: Fallo al conectar al registro de ECR"
+#       fi
